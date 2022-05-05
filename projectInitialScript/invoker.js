@@ -10,15 +10,15 @@ prompt.get([promptAsking], (err, result) => {
         return onErr(err);
     }
     process.env.USER_ITEM = result[promptAsking];
+
+    exec("npm start", (error, stdout, stderr) => {
+    console.log(stdout);
+    });
 });
 
-exec("npm start", (error, stdout, stderr) => {
-    if(error){
-        console.log(error);
-    } else {
-        console.log(stdout);
-    }
-});
 
-// prompt.stop();
+
+
+
+
 
