@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npx playwright test",
-    "scrap": "node .\\projectInitialScript\\invoker.js"
+    "scrape": "node .\\projectInitialScript\\invoker.js"
   },
   "keywords": [],
   "author": "",
