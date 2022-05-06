@@ -39,12 +39,9 @@ test('alza test', async ({ page }) => {
   } catch(error){
     console.log(error);
   }
-  console.log(`${__dirname}\\..\\scraping.json` , "Daniel This is The Path");
   await page.locator("#edtSearch").click();
   await page.fill("#edtSearch", process.env.USER_ITEM);
   await page.locator("#btnSearch").click();
-  console.log(`${__dirname}\\..\\scraping.json` , "Daniel This is The Path");
-  console.log(process.env.USER_ITEM, "sssss");
   const boxesContainer = await page.waitForSelector("#boxes", { state: 'attached'});
   const box = await boxesContainer.$$(".box");
   const allJsonData = [];
