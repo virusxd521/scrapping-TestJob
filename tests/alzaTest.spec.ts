@@ -33,14 +33,17 @@ const gettingElementData = async (box : any) => {
 }
 
 test('alza test', async ({ page }) => {
+  
   try{
     await page.goto("https://www.alza.cz/", { timeout: 5000 });
   } catch(error){
     console.log(error);
   }
+  console.log(`${__dirname}\\..\\scraping.json` , "Daniel This is The Path");
   await page.locator("#edtSearch").click();
   await page.fill("#edtSearch", process.env.USER_ITEM);
   await page.locator("#btnSearch").click();
+  console.log(`${__dirname}\\..\\scraping.json` , "Daniel This is The Path");
   console.log(process.env.USER_ITEM, "sssss");
   const boxesContainer = await page.waitForSelector("#boxes", { state: 'attached'});
   const box = await boxesContainer.$$(".box");
@@ -50,7 +53,7 @@ test('alza test', async ({ page }) => {
     allJsonData.push(await gettingElementData(box[i]));
   }
   
-  fs.writeFileSync("C:/Users/Daniel/Desktop/jobTest/alzaScrapper/scraping.json", JSON.stringify(allJsonData));
+  fs.writeFileSync(`${__dirname}\\..\\scraping.json`, JSON.stringify(allJsonData));
   console.log(allJsonData);
 });
 
